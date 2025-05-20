@@ -26,4 +26,13 @@ public class ExamController {
     public Exam getExamById(Long id) {
 
     }
+    
+    public Exam updateExam( Long id,  Exam exam) {
+    
+    }
+
+  
+    public void deleteExam( Long id) {
+      
+    }
 }
