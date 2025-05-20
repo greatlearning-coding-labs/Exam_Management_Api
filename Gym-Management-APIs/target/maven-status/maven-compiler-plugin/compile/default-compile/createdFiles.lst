@@ -1,0 +1,5 @@
+com\gl\examination\service\ExamService.class
+com\gl\examination\controller\ExamController.class
+com\gl\examination\ExamApplication.class
+com\gl\examination\model\Exam.class
+com\gl\examination\repository\ExamRepository.class
