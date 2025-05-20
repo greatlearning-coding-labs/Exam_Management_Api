@@ -8,24 +8,22 @@ import com.gl.examination.service.ExamService;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/exams")
 public class ExamController {
-    @Autowired
+    
     private ExamService examService;
 
-    @PostMapping
-    public Exam createExam(@RequestBody Exam exam) {
-        return examService.createExam(exam);
+
+    public Exam createExam(Exam exam) {
+      
     }
 
-    @GetMapping
+   
     public List<Exam> getAllExams() {
-        return examService.getAllExams();
+       
     }
 
-    @GetMapping("/{id}")
-    public Exam getExamById(@PathVariable Long id) {
-        return examService.getExamById(id);
+    
+    public Exam getExamById(Long id) {
+
     }
 }
