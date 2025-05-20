@@ -59,4 +59,20 @@ public class ExamServiceTest {
         Exam result = examService.getExamById(1L);
         assertEquals("Physics", result.getTitle());
     }
+    
+    @Test
+    void testUpdateExamNotFound() {
+        Exam updatedData = new Exam("Advanced Java", "Advanced topics");
+        when(examRepository.findById(2L)).thenReturn(Optional.empty());
+
+        Exam updated = examService.updateExam(2L, updatedData);
+        assertNull(updated);
+    }
+
+    @Test
+    void testDeleteExam() {
+        doNothing().when(examRepository).deleteById(1L);
+        examService.deleteExam(1L);
+        verify(examRepository, times(1)).deleteById(1L);
+    }
 }
