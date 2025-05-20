@@ -69,4 +69,27 @@ public class ExamControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.title").value("Biology"));
     }
+     @Test
+    void testUpdateExam() throws Exception {
+        Exam updatedExam = new Exam("Advanced Java", "Advanced topics");
+        updatedExam.setId(1L);
+
+        when(examService.updateExam(eq(1L), any(Exam.class))).thenReturn(updatedExam);
+
+        mockMvc.perform(put("/exams/1")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(updatedExam)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.title").value("Advanced Java"));
+    }
+
+    @Test
+    void testDeleteExam() throws Exception {
+        doNothing().when(examService).deleteExam(1L);
+
+        mockMvc.perform(delete("/exams/1"))
+                .andExpect(status().isOk());
+
+        verify(examService, times(1)).deleteExam(1L);
+    }
 }
