@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+
 public class Exam {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,7 +16,7 @@ public class Exam {
 
     private String title;
     private String description;
-    private int durationInMinutes;
+
 
     // Getters and setters
     public Long getId() { return id; }
@@ -28,6 +28,5 @@ public class Exam {
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }
 
-    public int getDurationInMinutes() { return durationInMinutes; }
-    public void setDurationInMinutes(int durationInMinutes) { this.durationInMinutes = durationInMinutes; }
+   
 }
